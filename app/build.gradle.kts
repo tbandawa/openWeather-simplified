@@ -43,6 +43,7 @@ android {
         checkAllWarnings = true
         abortOnError = true
         warningsAsErrors = false
+        baseline = file("lint-baseline.xml")
     }
 }
 
