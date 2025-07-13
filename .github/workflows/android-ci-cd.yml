@@ -26,6 +26,7 @@ jobs:
           ./gradlew assembleRelease
           ./gradlew assembleDebug
           ./gradlew test
+          ./gradlew lint
 
       - name: Test reports
         if: ${{ always() }}
@@ -33,6 +34,12 @@ jobs:
         with:
           name: test-reports
           path: '**/build/reports/tests/'
+
+      - name: Lint reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: lint-reports
+          path: app/build/reports/lint-results-debug.html
 
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
