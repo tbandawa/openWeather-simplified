@@ -1,5 +1,6 @@
 package me.tbandawa.android.openweather.simplified.data.api
 
+import io.ktor.http.HttpStatusCode
 import kotlinx.coroutines.runBlocking
 import me.tbandawa.android.openweather.simplified.base.BaseTest
 import org.hamcrest.CoreMatchers.`is`
