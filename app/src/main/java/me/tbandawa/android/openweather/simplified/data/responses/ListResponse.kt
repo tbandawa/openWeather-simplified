@@ -13,6 +13,5 @@ data class ListResponse(
     val visibility: Long,
     val pop: Long,
     val sys: SysResponse,
-    @SerialName("dt_txt")
-    val dtTxt: String,
+    @SerialName("dt_txt") val dtTxt: String,
 )

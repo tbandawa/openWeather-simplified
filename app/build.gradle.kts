@@ -72,6 +72,7 @@ dependencies {
     api(libs.ktor.serialization.kotlinx.json)
     implementation(libs.ktor.client.logging)
     implementation(libs.ktor.client.android)
+    implementation(libs.google.gson)
     testImplementation(libs.junit)
     testImplementation(libs.ktor.client.mock)
     androidTestImplementation(libs.androidx.junit)
