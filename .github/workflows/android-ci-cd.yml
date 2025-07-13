@@ -41,12 +41,6 @@ jobs:
           name: lint-reports
           path: app/build/reports/lint-results-debug.html
 
-      - name: Jacoco reports
-        uses: actions/upload-artifact@v4
-        with:
-          name: jacoco-reports
-          path: app/build/reports/coverage/androidTest/debug/connected/index.html
-
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
