@@ -11,7 +11,7 @@ import me.tbandawa.android.openweather.simplified.domain.model.Weather
 import me.tbandawa.android.openweather.simplified.domain.model.Wind
 import me.tbandawa.android.openweather.simplified.domain.model.Sys
 
-class FiveDayWeatherResponseMapper: ResponseMapper<RootResponse, Root> {
+class ResponseMapperImpl: ResponseMapper<RootResponse, Root> {
 
     override fun mapToModel(response: RootResponse): Root {
         return Root(

@@ -8,7 +8,8 @@ import io.ktor.http.headersOf
 import io.ktor.utils.io.ByteReadChannel
 import kotlinx.serialization.json.Json
 import me.tbandawa.android.openweather.simplified.data.api.OpenWeatherApiClient
-import me.tbandawa.android.openweather.simplified.domain.mapper.FiveDayWeatherResponseMapper
+import me.tbandawa.android.openweather.simplified.data.repo.OpenWeatherRepoImpl
+import me.tbandawa.android.openweather.simplified.domain.mapper.ResponseMapperImpl
 import org.junit.Before
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
@@ -16,7 +17,9 @@ import org.junit.runners.JUnit4
 @RunWith(JUnit4::class)
 abstract class BaseTest {
 
-    protected lateinit var fiveDayWeatherMapper: FiveDayWeatherResponseMapper
+    protected lateinit var fiveDayWeatherMapper: ResponseMapperImpl
+
+    protected lateinit var openWeatherRepo: OpenWeatherRepoImpl
 
     protected lateinit var openWeatherApiClient: OpenWeatherApiClient
 
@@ -24,7 +27,7 @@ abstract class BaseTest {
 
     @Before
     fun testsSetup() {
-        fiveDayWeatherMapper = FiveDayWeatherResponseMapper()
+        fiveDayWeatherMapper = ResponseMapperImpl()
     }
 
     protected fun enqueueResponse(
