@@ -27,7 +27,6 @@ jobs:
           ./gradlew assembleDebug
           ./gradlew test
           ./gradlew lint
-          ./gradle jacocoTestReport
 
       - name: Test reports
         if: ${{ always() }}
