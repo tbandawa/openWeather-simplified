@@ -7,8 +7,8 @@ import kotlinx.coroutines.runBlocking
 import me.tbandawa.android.openweather.simplified.base.BaseTest
 import me.tbandawa.android.openweather.simplified.data.api.OpenWeatherApiClient
 import me.tbandawa.android.openweather.simplified.data.repo.OpenWeatherRepoImpl
-import me.tbandawa.android.openweather.simplified.domain.core.OpenWeatherIntent
-import me.tbandawa.android.openweather.simplified.domain.core.OpenWeatherState
+import me.tbandawa.android.openweather.simplified.core.OpenWeatherIntent
+import me.tbandawa.android.openweather.simplified.core.OpenWeatherState
 import me.tbandawa.android.openweather.simplified.domain.model.Root
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat

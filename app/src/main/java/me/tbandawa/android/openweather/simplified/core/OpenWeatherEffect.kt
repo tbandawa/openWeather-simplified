@@ -1,4 +1,4 @@
-package me.tbandawa.android.openweather.simplified.domain.core
+package me.tbandawa.android.openweather.simplified.core
 
 import me.tbandawa.android.openweather.simplified.domain.base.Effect
 

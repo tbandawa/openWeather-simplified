@@ -1,15 +1,16 @@
-package me.tbandawa.android.openweather.simplified.domain.mapper
+package me.tbandawa.android.openweather.simplified.data.mapper
 
 import me.tbandawa.android.openweather.simplified.data.responses.RootResponse
-import me.tbandawa.android.openweather.simplified.domain.model.Root
-import me.tbandawa.android.openweather.simplified.domain.model.Main
-import me.tbandawa.android.openweather.simplified.domain.model.List
+import me.tbandawa.android.openweather.simplified.domain.mapper.ResponseMapper
 import me.tbandawa.android.openweather.simplified.domain.model.City
 import me.tbandawa.android.openweather.simplified.domain.model.Clouds
 import me.tbandawa.android.openweather.simplified.domain.model.Coord
+import me.tbandawa.android.openweather.simplified.domain.model.List
+import me.tbandawa.android.openweather.simplified.domain.model.Main
+import me.tbandawa.android.openweather.simplified.domain.model.Root
+import me.tbandawa.android.openweather.simplified.domain.model.Sys
 import me.tbandawa.android.openweather.simplified.domain.model.Weather
 import me.tbandawa.android.openweather.simplified.domain.model.Wind
-import me.tbandawa.android.openweather.simplified.domain.model.Sys
 
 class ResponseMapperImpl: ResponseMapper<RootResponse, Root> {
 

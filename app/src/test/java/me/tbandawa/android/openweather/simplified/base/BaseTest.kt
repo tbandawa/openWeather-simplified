@@ -14,7 +14,7 @@ import kotlinx.serialization.json.Json
 import me.tbandawa.android.openweather.simplified.data.api.OpenWeatherApiClient
 import me.tbandawa.android.openweather.simplified.data.repo.OpenWeatherRepoImpl
 import me.tbandawa.android.openweather.simplified.data.viewmodel.OpenWeatherViewModel
-import me.tbandawa.android.openweather.simplified.domain.mapper.ResponseMapperImpl
+import me.tbandawa.android.openweather.simplified.data.mapper.ResponseMapperImpl
 import org.junit.After
 import org.junit.Before
 import org.junit.runner.RunWith
