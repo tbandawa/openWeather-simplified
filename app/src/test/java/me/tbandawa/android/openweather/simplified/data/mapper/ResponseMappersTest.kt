@@ -1,4 +1,4 @@
-package me.tbandawa.android.openweather.simplified.domain.mapper
+package me.tbandawa.android.openweather.simplified.data.mapper
 
 import me.tbandawa.android.openweather.simplified.base.BaseTest
 import me.tbandawa.android.openweather.simplified.data.responses.RootResponse
