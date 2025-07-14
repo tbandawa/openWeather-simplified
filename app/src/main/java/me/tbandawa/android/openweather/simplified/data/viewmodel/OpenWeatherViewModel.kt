@@ -23,7 +23,6 @@ class OpenWeatherViewModel(
                     getFiveDayWeather(lat = intent.lat, lon = intent.lon)
                 }
             }
-            is OpenWeatherIntent.Error -> {}
         }
     }
 
