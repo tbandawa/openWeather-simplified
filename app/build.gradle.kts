@@ -73,6 +73,8 @@ dependencies {
     implementation(libs.ktor.client.logging)
     implementation(libs.ktor.client.android)
     implementation(libs.google.gson)
+    implementation(libs.google.accompanist.permissions)
+    implementation(libs.play.services.location)
     implementation(libs.koin.compose)
     implementation(libs.koin.core)
     testImplementation(libs.junit)
