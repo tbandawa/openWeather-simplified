@@ -21,6 +21,8 @@ import androidx.compose.ui.platform.LocalContext
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.google.android.gms.location.LocationServices
+import me.tbandawa.android.openweather.simplified.ui.screens.PermissionContent
+import me.tbandawa.android.openweather.simplified.ui.screens.RationaleContent
 import me.tbandawa.android.openweather.simplified.ui.theme.OpenWeathersimplifiedTheme
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -68,22 +70,11 @@ class MainActivity : ComponentActivity() {
                         ) {
                             if (locationPermissionState.shouldShowRationale) {
                                 // request user to allow permissions
-                                Button(onClick = { locationPermissionState.launchMultiplePermissionRequest() }) {
-                                    Text("Request permission")
-                                }
+                                RationaleContent()
                             } else {
                                 // allow permissions via app settings
-                                Button(
-                                    onClick = {
-                                        context.startActivity(
-                                            Intent(
-                                                Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                                                Uri.fromParts("package", context.packageName, null)
-                                            )
-                                        )
-                                    }
-                                ) {
-                                    Text("Open settings permission")
+                                PermissionContent {
+                                    locationPermissionState.launchMultiplePermissionRequest()
                                 }
                             }
                         }

@@ -1,5 +1,6 @@
 [versions]
 agp = "8.11.1"
+constraintlayoutCompose = "1.1.1"
 kotlin = "2.0.21"
 coreKtx = "1.16.0"
 junit = "4.13.2"
@@ -15,8 +16,10 @@ coroutines = "1.10.2"
 dateTime = "0.7.1"
 accompanist = "0.37.3"
 playServicesLocation = "21.3.0"
+constraintlayout = "2.2.1"
 
 [libraries]
+androidx-constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintlayoutCompose" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -46,6 +49,7 @@ koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = 
 google-gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 google-accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist" }
 play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "playServicesLocation" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
