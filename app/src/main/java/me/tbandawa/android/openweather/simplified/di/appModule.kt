@@ -3,9 +3,9 @@ package me.tbandawa.android.openweather.simplified.di
 import io.ktor.client.engine.android.Android
 import kotlinx.coroutines.Dispatchers
 import me.tbandawa.android.openweather.simplified.data.api.OpenWeatherApiClient
+import me.tbandawa.android.openweather.simplified.data.mapper.ResponseMapperImpl
 import me.tbandawa.android.openweather.simplified.data.repo.OpenWeatherRepoImpl
 import me.tbandawa.android.openweather.simplified.data.viewmodel.OpenWeatherViewModel
-import me.tbandawa.android.openweather.simplified.data.mapper.ResponseMapperImpl
 import me.tbandawa.android.openweather.simplified.domain.repo.OpenWeatherRepo
 import org.koin.core.context.startKoin
 import org.koin.core.qualifier.named
