@@ -13,6 +13,24 @@
         </DropdownSelection>
         <DialogSelection />
       </SelectionState>
+      <SelectionState runConfigName="MyComposeTest">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="testErrorScreen()">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="testLoadingScreen()">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="ScreensTests">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="testPermissionsScreen()">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="Tests in 'me'">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
     </selectionStates>
   </component>
 </project>

@@ -65,6 +65,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.constraintlayout.compose)
     implementation(libs.kotlin.coroutines)
     implementation(libs.kotlin.date.time)
     implementation(libs.ktor.client.core)
@@ -77,6 +78,8 @@ dependencies {
     implementation(libs.play.services.location)
     implementation(libs.koin.compose)
     implementation(libs.koin.core)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.coil.compose)
     testImplementation(libs.junit)
     testImplementation(libs.ktor.client.mock)
     testImplementation(libs.kotlinx.coroutines.test)
@@ -86,6 +89,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    testImplementation(kotlin("test"))
 }
 
 val exclusions = listOf(
