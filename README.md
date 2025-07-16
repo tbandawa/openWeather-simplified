@@ -1,5 +1,5 @@
 # <b>openWeather-simplified</b>
-This showcases the use of MVI architecture whilst following best practices. Data is provided by [OpenWeather](https://openweathermap.org/forecast5)
+A simple weather app using MVI architecture whilst following best practices. This approach allows for independent development of different layers of the app with much testability. Data is provided by [OpenWeather](https://openweathermap.org/forecast5)
 
 #### App Architecture
 
