@@ -16,12 +16,6 @@
       <SelectionState runConfigName="MyComposeTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="testErrorScreen()">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
-      <SelectionState runConfigName="testLoadingScreen()">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
       <SelectionState runConfigName="ScreensTests">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
