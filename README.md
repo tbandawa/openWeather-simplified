@@ -16,3 +16,5 @@ User performs an action which is an <b>Intent</b> -> the intent request for data
 * [Koin](https://insert-koin.io/) for dependency injection.
 * [Jetpack Compose](https://developer.android.com/jetpack/compose) libraries.
 * [Ktor](https://ktor.io/) for fetching data from the OpenWeatherMap API.
+* [Gson](https://mvnrepository.com/artifact/com.google.code.gson/gson) converting Java Objects into their JSON representation
+* [Jetpack Compose Permissions](https://google.github.io/accompanist/permissions/) providing Android runtime permissions support for Jetpack Compose
