@@ -18,7 +18,7 @@ private val dispatchersModule = module {
 }
 
 private val clientEngineModule = module {
-    single { Android }
+    single { Android.create() }
 }
 
 private val apiModule = module {

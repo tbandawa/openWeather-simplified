@@ -19,18 +19,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import me.tbandawa.android.openweather.simplified.ui.theme.OpenWeathersimplifiedTheme
 
 @ExperimentalPermissionsApi
 @Composable
-fun RationaleContent() {
+fun RationaleScreen() {
 
     Surface(color = MaterialTheme.colorScheme.background) {
         ConstraintLayout(
@@ -46,12 +43,7 @@ fun RationaleContent() {
             // Title text
             Text(
                 text = "Location access permission denied.",
-                style = TextStyle(
-                    color = Color.Black,
-                    fontWeight = FontWeight.ExtraBold,
-                    fontSize = 18.sp,
-                    textAlign = TextAlign.Center
-                ),
+                style = MaterialTheme.typography.labelSmall,
                 modifier = Modifier
                     .constrainAs(titleLayout) {
                         bottom.linkTo(descriptionLayout.top)
@@ -64,11 +56,7 @@ fun RationaleContent() {
             // Rationale text
             Text(
                 text = "openWeather needs access location to know where you are. Please grant access on the Settings screen.",
-                style = TextStyle(
-                    color = Color.Black,
-                    fontWeight = FontWeight.Normal,
-                    fontSize = 18.sp
-                ),
+                style = MaterialTheme.typography.bodySmall,
                 modifier = Modifier
                     .constrainAs(descriptionLayout) {
                         start.linkTo(parent.start)
@@ -102,7 +90,10 @@ fun RationaleContent() {
                     contentColor = Color.White
                 )
             ) {
-                Text(text = "Open Settings")
+                Text(
+                    text = "Open Settings",
+                    style = MaterialTheme.typography.bodySmall
+                )
             }
 
             // Exit button
@@ -122,7 +113,10 @@ fun RationaleContent() {
                     contentColor = Color.White
                 )
             ) {
-                Text(text = "Exit")
+                Text(
+                    text = "Exit",
+                    style = MaterialTheme.typography.bodySmall
+                )
             }
         }
     }
@@ -132,5 +126,7 @@ fun RationaleContent() {
 @Composable
 @Preview
 fun RationaleContentPreview() {
-    RationaleContent()
+    OpenWeathersimplifiedTheme {
+        RationaleScreen()
+    }
 }

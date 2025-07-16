@@ -2,11 +2,11 @@ package me.tbandawa.android.openweather.simplified.data.viewmodel
 
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import me.tbandawa.android.openweather.simplified.domain.base.BaseViewModel
 import me.tbandawa.android.openweather.simplified.core.OpenWeatherEffect
 import me.tbandawa.android.openweather.simplified.core.OpenWeatherIntent
 import me.tbandawa.android.openweather.simplified.core.OpenWeatherState
 import me.tbandawa.android.openweather.simplified.core.reduce
+import me.tbandawa.android.openweather.simplified.domain.base.BaseViewModel
 import me.tbandawa.android.openweather.simplified.domain.model.Root
 import me.tbandawa.android.openweather.simplified.domain.repo.OpenWeatherRepo
 
