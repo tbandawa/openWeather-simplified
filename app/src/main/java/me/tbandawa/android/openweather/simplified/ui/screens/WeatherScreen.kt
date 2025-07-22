@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -79,7 +81,10 @@ fun WeatherScreen(
                         isLoaded.value = true
                         val root = (openWeatherState as OpenWeatherState.Data<*>).data as Root
                         bgResourceId.intValue = getBackGround(root.list[0].weather[0].main)
-                        Column {
+                        Column(
+                            modifier = Modifier
+                                .verticalScroll(rememberScrollState())
+                        ) {
                             for (i in 0 until root.list.size step 8) {
                                 WeatherItem(root.list[i])
                             }
