@@ -17,11 +17,12 @@ import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import me.tbandawa.android.openweather.simplified.core.OpenWeatherIntent
 import me.tbandawa.android.openweather.simplified.data.viewmodel.OpenWeatherViewModel
 import me.tbandawa.android.openweather.simplified.service.LocationService
-import me.tbandawa.android.openweather.simplified.ui.screens.LocationErrorScreen
+import me.tbandawa.android.openweather.simplified.ui.screens.LocationProgressScreen
 import me.tbandawa.android.openweather.simplified.ui.screens.PermissionScreen
 import me.tbandawa.android.openweather.simplified.ui.screens.RationaleScreen
 import me.tbandawa.android.openweather.simplified.ui.screens.WeatherScreen
 import me.tbandawa.android.openweather.simplified.ui.theme.OpenWeathersimplifiedTheme
+import org.koin.android.ext.android.get
 import org.koin.androidx.compose.koinViewModel
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -37,6 +38,8 @@ class MainActivity : ComponentActivity() {
             val context = LocalContext.current
 
             val viewModel: OpenWeatherViewModel = koinViewModel()
+
+            val locationService: LocationService = get()
 
             // request location permissions state
             val locationPermissionState = rememberMultiplePermissionsState(
@@ -55,14 +58,15 @@ class MainActivity : ComponentActivity() {
                     // if permissions granted, get co-ordinates, else request permissions
                     if (locationPermissionState.allPermissionsGranted) {
 
-                        // get last known location and update co-ordinates else null
-                        LocationService(context).locationInfo.value?.let {
+                        // get last known location and update co-ordinates
+                        // else wait for location update from device
+                        locationService.locationInfo.value?.let {
                             WeatherScreen(openWeatherState = viewModel.state.collectAsState().value) {
                                 viewModel.handleIntent(OpenWeatherIntent.GetFiveDayWeather(it.latitude, it.longitude))
                             }
                             Text("LocationInfo: $it")
                         } ?: run {
-                            LocationErrorScreen()
+                            LocationProgressScreen()
                         }
 
                     } else {

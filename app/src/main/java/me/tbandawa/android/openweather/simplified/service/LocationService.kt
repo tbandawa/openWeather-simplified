@@ -4,12 +4,13 @@ import android.annotation.SuppressLint
 import android.app.Service
 import android.content.Context
 import android.content.Intent
-import android.location.*
-import android.os.IBinder
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
 import android.os.Bundle
+import android.os.IBinder
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
-import java.lang.Exception
 
 @SuppressLint("MissingPermission")
 class LocationService(
@@ -81,5 +82,4 @@ class LocationService(
     override fun onProviderDisabled(provider: String) {}
 
     override fun onProviderEnabled(provider: String) {}
-
 }
