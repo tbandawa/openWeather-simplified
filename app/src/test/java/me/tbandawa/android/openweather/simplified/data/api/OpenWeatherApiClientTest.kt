@@ -4,8 +4,6 @@ import io.ktor.client.plugins.ClientRequestException
 import io.ktor.http.HttpStatusCode
 import kotlinx.coroutines.runBlocking
 import me.tbandawa.android.openweather.simplified.base.BaseTest
-import me.tbandawa.android.openweather.simplified.extensions.toDate
-import me.tbandawa.android.openweather.simplified.extensions.toDay
 import me.tbandawa.android.openweather.simplified.extensions.toTemperature
 import org.hamcrest.CoreMatchers.containsString
 import org.hamcrest.CoreMatchers.`is`

@@ -25,11 +25,3 @@ fun Int.toDay() : String {
     val formatter = SimpleDateFormat("EEEE")
     return formatter.format(calendar.time)
 }
-
-fun Int.toDate() : String {
-    val seconds = this*1000L
-    val calendar = Calendar.getInstance()
-    calendar.timeInMillis = seconds
-    val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-    return formatter.format(calendar.time)
-}

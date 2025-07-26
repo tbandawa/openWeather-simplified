@@ -7,6 +7,7 @@ import me.tbandawa.android.openweather.simplified.data.mapper.ResponseMapperImpl
 import me.tbandawa.android.openweather.simplified.data.repo.OpenWeatherRepoImpl
 import me.tbandawa.android.openweather.simplified.data.viewmodel.OpenWeatherViewModel
 import me.tbandawa.android.openweather.simplified.domain.repo.OpenWeatherRepo
+import me.tbandawa.android.openweather.simplified.service.LocationService
 import org.koin.core.context.startKoin
 import org.koin.core.qualifier.named
 import org.koin.dsl.KoinAppDeclaration
@@ -37,13 +38,18 @@ private val viewModelModule = module {
     single { OpenWeatherViewModel(get()) }
 }
 
+private val serviceModule = module {
+    single { LocationService(get()) }
+}
+
 val modulesList = listOf(
     dispatchersModule,
     clientEngineModule,
     apiModule,
     mapperModule,
     repoModule,
-    viewModelModule
+    viewModelModule,
+    serviceModule
 )
 
 fun initKoin(appDeclaration: KoinAppDeclaration) = startKoin {

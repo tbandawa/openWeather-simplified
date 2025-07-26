@@ -24,7 +24,7 @@ import me.tbandawa.android.openweather.simplified.ui.theme.OpenWeathersimplified
 
 @ExperimentalPermissionsApi
 @Composable
-fun LocationErrorScreen() {
+fun LocationProgressScreen() {
 
     Surface(color = MaterialTheme.colorScheme.background) {
         ConstraintLayout(
@@ -93,8 +93,8 @@ fun LocationErrorScreen() {
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
 @Preview
-fun LocationErrorScreenPreview() {
+fun LocationProgressScreenPreview() {
     OpenWeathersimplifiedTheme {
-        LocationErrorScreen()
+        LocationProgressScreen()
     }
 }
