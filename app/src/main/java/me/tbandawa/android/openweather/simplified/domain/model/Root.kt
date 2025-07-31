@@ -6,4 +6,12 @@ data class Root(
     var cnt: Long,
     var list: kotlin.collections.List<List>,
     var city: City,
-)
+) {
+
+    // returns five day interval weather
+    fun getFiveDayInterval(): kotlin.collections.List<List> {
+        return this.list.filterIndexed { index, _ ->
+            index % 8 == 0
+        }
+    }
+}

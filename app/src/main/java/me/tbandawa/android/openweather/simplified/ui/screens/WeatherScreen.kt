@@ -20,7 +20,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import me.tbandawa.android.openweather.simplified.R
 import me.tbandawa.android.openweather.simplified.core.OpenWeatherState
-import me.tbandawa.android.openweather.simplified.domain.model.Error
 import me.tbandawa.android.openweather.simplified.domain.model.Root
 import me.tbandawa.android.openweather.simplified.ui.composables.OpenWeatherTopBar
 import me.tbandawa.android.openweather.simplified.ui.composables.WeatherItem
@@ -78,20 +77,18 @@ fun WeatherScreen(
                         LoadingScreen()
                     }
                     is OpenWeatherState.Data -> {
+                        val data = openWeatherState.data
+                        bgResourceId.intValue = getBackGround(data.list[0].weather[0].main)
                         isLoaded.value = true
-                        val root = (openWeatherState as OpenWeatherState.Data<*>).data as Root
-                        bgResourceId.intValue = getBackGround(root.list[0].weather[0].main)
                         Column(
                             modifier = Modifier
                                 .verticalScroll(rememberScrollState())
                         ) {
-                            for (i in 0 until root.list.size step 8) {
-                                WeatherItem(root.list[i])
-                            }
+                            data.getFiveDayInterval().forEach { WeatherItem(it) }
                         }
                     }
                     is OpenWeatherState.Failure -> {
-                        val error = (openWeatherState as OpenWeatherState.Failure<*>).data as Error
+                        val error = openWeatherState.data!!
                         ErrorScreen(error.message) {
                             // invoke the intent again on error
                             handleIntent.invoke()
