@@ -9,13 +9,15 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.io.IOException
 import me.tbandawa.android.openweather.simplified.data.api.OpenWeatherApiClient
 import me.tbandawa.android.openweather.simplified.core.OpenWeatherResults
-import me.tbandawa.android.openweather.simplified.data.mapper.ResponseMapperImpl
+import me.tbandawa.android.openweather.simplified.data.responses.RootResponse
+import me.tbandawa.android.openweather.simplified.domain.mapper.ResponseMapper
 import me.tbandawa.android.openweather.simplified.domain.model.Error
+import me.tbandawa.android.openweather.simplified.domain.model.Root
 import me.tbandawa.android.openweather.simplified.domain.repo.OpenWeatherRepo
 
 class OpenWeatherRepoImpl(
     private val apiClient: OpenWeatherApiClient,
-    private val responseMapper: ResponseMapperImpl,
+    private val responseMapper: ResponseMapper<RootResponse, Root>,
     private val coroutineDispatcher: CoroutineDispatcher,
 ): OpenWeatherRepo {
 

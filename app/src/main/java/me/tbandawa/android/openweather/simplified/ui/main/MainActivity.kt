@@ -60,7 +60,9 @@ class MainActivity : ComponentActivity() {
                         // get last known location and update co-ordinates
                         // else wait for location update from device
                         locationService.locationInfo.value?.let {
-                            WeatherScreen(openWeatherState = viewModel.state.collectAsState().value) {
+                            WeatherScreen(
+                                openWeatherState = viewModel.state.collectAsState().value
+                            ) {
                                 viewModel.handleIntent(OpenWeatherIntent.GetFiveDayWeather(it.latitude, it.longitude))
                             }
                         } ?: run {
