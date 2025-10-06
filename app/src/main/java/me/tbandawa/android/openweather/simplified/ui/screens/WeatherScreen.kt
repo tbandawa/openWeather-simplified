@@ -32,7 +32,7 @@ fun WeatherScreen(
 ) {
 
     // track if the data is loaded
-    val isLoaded = remember { mutableStateOf(false) }
+    val isDataState = remember { mutableStateOf(false) }
 
     // hold the background resource id
     val bgResourceId = remember { mutableIntStateOf(0) }
@@ -47,21 +47,19 @@ fun WeatherScreen(
     ) {
 
         // show the background image only when the data is loaded
-        if (isLoaded.value) {
-            Image(
-                painter = painterResource(id = bgResourceId.intValue),
-                contentDescription = null,
-                modifier = Modifier.fillMaxSize(),
-                contentScale = ContentScale.Crop
-            )
-        }
+        Image(
+            painter = painterResource(id = bgResourceId.intValue),
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop
+        )
 
         Scaffold(
             modifier = Modifier
                 .fillMaxSize(),
             topBar = {
                 OpenWeatherTopBar(
-                    contentColor = if (isLoaded.value) Color.White else Color.Black
+                    contentColor = if (isDataState.value) Color.White else Color.Black
                 )
             },
             containerColor = Color.Transparent
@@ -79,7 +77,7 @@ fun WeatherScreen(
                     is OpenWeatherState.Data -> {
                         val data = openWeatherState.data
                         bgResourceId.intValue = getBackGround(data.list[0].weather[0].main)
-                        isLoaded.value = true
+                        isDataState.value = true
                         Column(
                             modifier = Modifier
                                 .verticalScroll(rememberScrollState())

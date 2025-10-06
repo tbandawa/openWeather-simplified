@@ -3,6 +3,7 @@ package me.tbandawa.android.openweather.simplified.ui.main
 import android.Manifest
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -53,6 +54,8 @@ class MainActivity : ComponentActivity() {
 
                     // if permissions granted, get co-ordinates, else request permissions
                     if (locationPermissionState.allPermissionsGranted) {
+
+                        locationService.getLocation()
 
                         // get last known location and update co-ordinates
                         // else wait for location update from device

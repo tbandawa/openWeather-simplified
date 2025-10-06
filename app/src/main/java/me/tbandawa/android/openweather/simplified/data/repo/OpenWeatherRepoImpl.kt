@@ -3,6 +3,7 @@ package me.tbandawa.android.openweather.simplified.data.repo
 import io.ktor.client.plugins.ClientRequestException
 import io.ktor.client.plugins.ResponseException
 import io.ktor.client.plugins.ServerResponseException
+import io.ktor.serialization.JsonConvertException
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -41,6 +42,9 @@ suspend fun <T> handleApiCall(
         OpenWeatherResults.Failure(Error(e.response.status.value, e.response.status.description))
     } catch (e: ServerResponseException) {
         OpenWeatherResults.Failure(Error(e.response.status.value, e.response.status.description))
+    } catch (e: JsonConvertException) {
+        e.printStackTrace()
+        OpenWeatherResults.Failure(Error(500, "Unknown response format. Please try again"))
     } catch (e: IOException) {
         OpenWeatherResults.Failure(Error(500, "Server unreachable. Please check your internet connection and try again"))
     } catch (e: Exception) {
