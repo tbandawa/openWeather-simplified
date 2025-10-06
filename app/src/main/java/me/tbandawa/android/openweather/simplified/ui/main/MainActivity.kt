@@ -55,10 +55,9 @@ class MainActivity : ComponentActivity() {
                     // if permissions granted, get co-ordinates, else request permissions
                     if (locationPermissionState.allPermissionsGranted) {
 
-                        locationService.getLocation()
-
                         // get last known location and update co-ordinates
                         // else wait for location update from device
+                        locationService.getLocation()
                         locationService.locationInfo.value?.let {
                             WeatherScreen(
                                 openWeatherState = viewModel.state.collectAsState().value

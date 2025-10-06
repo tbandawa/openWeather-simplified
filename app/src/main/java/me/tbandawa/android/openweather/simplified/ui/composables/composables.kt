@@ -140,7 +140,7 @@ fun WeatherItemPreview() {
         clouds = Clouds(1L),
         wind = Wind(2.87, 319, 3.55),
         visibility = 10000,
-        pop = 12L,
+        pop = 12.0,
         sys = Sys("d"),
         dtTxt = "2025-07-15 15:00:00"
     )

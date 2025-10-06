@@ -47,12 +47,14 @@ fun WeatherScreen(
     ) {
 
         // show the background image only when the data is loaded
-        Image(
-            painter = painterResource(id = bgResourceId.intValue),
-            contentDescription = null,
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop
-        )
+        if (bgResourceId.intValue > 0) {
+            Image(
+                painter = painterResource(id = bgResourceId.intValue),
+                contentDescription = null,
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop
+            )
+        }
 
         Scaffold(
             modifier = Modifier
