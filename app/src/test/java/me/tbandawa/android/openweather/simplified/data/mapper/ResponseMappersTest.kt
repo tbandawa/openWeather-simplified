@@ -14,5 +14,6 @@ class ResponseMappersTest: BaseTest() {
         val fiveDayWeather = fiveDayWeatherMapper.mapToModel(fiveDayWeatherForecastResponse)
         assertThat(fiveDayWeatherForecastResponse.cod, `is`(fiveDayWeather.cod))
         assertThat(fiveDayWeatherForecastResponse.list.size, `is`(fiveDayWeather.list.size))
+        assertThat(fiveDayWeather.getFiveDayInterval().size, `is`(5))
     }
 }

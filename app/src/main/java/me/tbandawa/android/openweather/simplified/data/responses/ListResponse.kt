@@ -11,7 +11,8 @@ data class ListResponse(
     val clouds: CloudsResponse,
     val wind: WindResponse,
     val visibility: Long,
-    val pop: Long,
+    val pop: Double,
+    val rain: RainResponse? = null,
     val sys: SysResponse,
     @SerialName("dt_txt") val dtTxt: String,
 )

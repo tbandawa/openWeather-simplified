@@ -18,7 +18,7 @@ import me.tbandawa.android.openweather.simplified.data.responses.RootResponse
 
 class OpenWeatherApiClient(httpClientEngine: HttpClientEngine) {
 
-    companion object {
+    companion object Companion {
         const val BASE_URL = "https://api.openweathermap.org/data/2.5"
         const val API_KEY = "dfc3d17632993a8fd49021d3c3d20f96"
     }
@@ -49,5 +49,4 @@ class OpenWeatherApiClient(httpClientEngine: HttpClientEngine) {
             parameter("lon", lon)
         }.body()
     }
-
 }

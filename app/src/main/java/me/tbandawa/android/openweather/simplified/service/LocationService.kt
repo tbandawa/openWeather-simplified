@@ -27,7 +27,7 @@ class LocationService(
 
     override fun onBind(arg0: Intent?): IBinder? = null
 
-    init {
+    fun getLocation() {
         locationManager = context.getSystemService(LOCATION_SERVICE) as LocationManager
         try {
             locationManager!!.requestLocationUpdates(

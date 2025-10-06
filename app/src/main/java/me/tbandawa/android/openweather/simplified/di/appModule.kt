@@ -5,7 +5,10 @@ import kotlinx.coroutines.Dispatchers
 import me.tbandawa.android.openweather.simplified.data.api.OpenWeatherApiClient
 import me.tbandawa.android.openweather.simplified.data.mapper.ResponseMapperImpl
 import me.tbandawa.android.openweather.simplified.data.repo.OpenWeatherRepoImpl
+import me.tbandawa.android.openweather.simplified.data.responses.RootResponse
 import me.tbandawa.android.openweather.simplified.data.viewmodel.OpenWeatherViewModel
+import me.tbandawa.android.openweather.simplified.domain.mapper.ResponseMapper
+import me.tbandawa.android.openweather.simplified.domain.model.Root
 import me.tbandawa.android.openweather.simplified.domain.repo.OpenWeatherRepo
 import me.tbandawa.android.openweather.simplified.service.LocationService
 import org.koin.core.context.startKoin
@@ -27,7 +30,7 @@ private val apiModule = module {
 }
 
 private val mapperModule = module {
-    single { ResponseMapperImpl() }
+    single<ResponseMapper<RootResponse, Root>> { ResponseMapperImpl() }
 }
 
 private val repoModule = module {

@@ -7,7 +7,7 @@ data class List(
     var clouds: Clouds,
     var wind: Wind,
     var visibility: Long,
-    var pop: Long,
+    var pop: Double,
     var sys: Sys,
     var dtTxt: String,
 )

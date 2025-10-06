@@ -20,7 +20,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import me.tbandawa.android.openweather.simplified.R
 import me.tbandawa.android.openweather.simplified.core.OpenWeatherState
-import me.tbandawa.android.openweather.simplified.domain.model.Error
 import me.tbandawa.android.openweather.simplified.domain.model.Root
 import me.tbandawa.android.openweather.simplified.ui.composables.OpenWeatherTopBar
 import me.tbandawa.android.openweather.simplified.ui.composables.WeatherItem
@@ -33,7 +32,7 @@ fun WeatherScreen(
 ) {
 
     // track if the data is loaded
-    val isLoaded = remember { mutableStateOf(false) }
+    val isDataState = remember { mutableStateOf(false) }
 
     // hold the background resource id
     val bgResourceId = remember { mutableIntStateOf(0) }
@@ -48,7 +47,7 @@ fun WeatherScreen(
     ) {
 
         // show the background image only when the data is loaded
-        if (isLoaded.value) {
+        if (bgResourceId.intValue > 0) {
             Image(
                 painter = painterResource(id = bgResourceId.intValue),
                 contentDescription = null,
@@ -62,7 +61,7 @@ fun WeatherScreen(
                 .fillMaxSize(),
             topBar = {
                 OpenWeatherTopBar(
-                    contentColor = if (isLoaded.value) Color.White else Color.Black
+                    contentColor = if (isDataState.value) Color.White else Color.Black
                 )
             },
             containerColor = Color.Transparent
@@ -78,20 +77,18 @@ fun WeatherScreen(
                         LoadingScreen()
                     }
                     is OpenWeatherState.Data -> {
-                        isLoaded.value = true
-                        val root = (openWeatherState as OpenWeatherState.Data<*>).data as Root
-                        bgResourceId.intValue = getBackGround(root.list[0].weather[0].main)
+                        val data = openWeatherState.data
+                        bgResourceId.intValue = getBackGround(data.list[0].weather[0].main)
+                        isDataState.value = true
                         Column(
                             modifier = Modifier
                                 .verticalScroll(rememberScrollState())
                         ) {
-                            for (i in 0 until root.list.size step 8) {
-                                WeatherItem(root.list[i])
-                            }
+                            data.getFiveDayInterval().forEach { WeatherItem(it) }
                         }
                     }
                     is OpenWeatherState.Failure -> {
-                        val error = (openWeatherState as OpenWeatherState.Failure<*>).data as Error
+                        val error = openWeatherState.data!!
                         ErrorScreen(error.message) {
                             // invoke the intent again on error
                             handleIntent.invoke()

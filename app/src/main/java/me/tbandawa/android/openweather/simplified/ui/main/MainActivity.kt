@@ -3,15 +3,14 @@ package me.tbandawa.android.openweather.simplified.ui.main
 import android.Manifest
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Text
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import me.tbandawa.android.openweather.simplified.core.OpenWeatherIntent
@@ -34,8 +33,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-
-            val context = LocalContext.current
 
             val viewModel: OpenWeatherViewModel = koinViewModel()
 
@@ -60,11 +57,13 @@ class MainActivity : ComponentActivity() {
 
                         // get last known location and update co-ordinates
                         // else wait for location update from device
+                        locationService.getLocation()
                         locationService.locationInfo.value?.let {
-                            WeatherScreen(openWeatherState = viewModel.state.collectAsState().value) {
+                            WeatherScreen(
+                                openWeatherState = viewModel.state.collectAsState().value
+                            ) {
                                 viewModel.handleIntent(OpenWeatherIntent.GetFiveDayWeather(it.latitude, it.longitude))
                             }
-                            Text("LocationInfo: $it")
                         } ?: run {
                             LocationProgressScreen()
                         }
